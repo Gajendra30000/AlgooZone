@@ -117,9 +117,9 @@ const Leaderboard = () => {
                     {/* Desktop Table Header */}
                     <div className="hidden md:grid grid-cols-12 gap-4 p-4 border-b border-gray-700/50 bg-black/20 text-gray-400 font-medium text-sm sticky top-0 z-10 backdrop-blur-md">
                         <div className="col-span-1 text-center">Rank</div>
-                        <div className="col-span-5">Name</div>
-                        <div className="col-span-2 text-center">Total</div>
-                        <div className="col-span-4 text-center">Year</div>
+                        <div className="col-span-6">Name</div>
+                        <div className="col-span-3 text-center">Total</div>
+                        <div className="col-span-2 text-center">Year</div>
                     </div>
 
                     <div className="divide-y divide-gray-700/30">
@@ -146,7 +146,7 @@ const Leaderboard = () => {
                                                 {index + 1 === 3 && <Trophy className="text-amber-600 w-5 h-5 mx-auto drop-shadow-lg" />}
                                                 {index + 1 > 3 && <span className="text-gray-500 text-sm">#{index + 1}</span>}
                                             </div>
-                                            <div className="col-span-5">
+                                            <div className="col-span-6">
                                                 <div className="flex items-center space-x-3">
                                                     <div className={clsx(
                                                         "w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold ring-2 ring-offset-2 ring-offset-[#0a0a2a]",
@@ -163,10 +163,10 @@ const Leaderboard = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div className="col-span-2 text-center font-mono font-bold text-cyan-400">
+                                            <div className="col-span-3 text-center font-mono font-bold text-cyan-400">
                                                 {student.stats?.totalSolved || 0}
                                             </div>
-                                            <div className="col-span-4 text-center text-gray-400 text-sm">
+                                            <div className="col-span-2 text-center text-gray-400 text-sm">
                                                 {student.year ? `Year ${student.year}` : '-'}
                                             </div>
                                         </div>
