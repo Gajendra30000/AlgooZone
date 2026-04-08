@@ -18,16 +18,15 @@ const CACHE_DURATION = 60 * 1000; // 1 minute
 const Leaderboard = () => {
     const [students, setStudents] = useState([]);
     const [filterYear, setFilterYear] = useState('');
-    const [filterSection, setFilterSection] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetchLeaderboard();
-    }, [filterYear, filterSection]);
+    }, [filterYear]);
 
     const fetchLeaderboard = async () => {
-        const currentParams = JSON.stringify({ year: filterYear, section: filterSection });
+        const currentParams = JSON.stringify({ year: filterYear });
 
         // Check cache foundation
         if (leaderboardCache.data &&
@@ -99,17 +98,6 @@ const Leaderboard = () => {
                             <option value="3">3rd Year</option>
                             <option value="4">4th Year</option>
                         </select>
-
-                        <select
-                            value={filterSection}
-                            onChange={(e) => setFilterSection(e.target.value)}
-                            className="bg-[#050511] border border-gray-600 text-white rounded-lg px-3 md:px-4 py-2 text-sm md:text-base focus:border-cyan-500 outline-none transition-all hover:border-cyan-400"
-                        >
-                            <option value="">All Sections</option>
-                            <option value="A">Section A</option>
-                            <option value="B">Section B</option>
-                            <option value="C">Section C</option>
-                        </select>
                     </div>
 
                     <div className="relative w-full">
@@ -131,8 +119,7 @@ const Leaderboard = () => {
                         <div className="col-span-1 text-center">Rank</div>
                         <div className="col-span-5">Name</div>
                         <div className="col-span-2 text-center">Total</div>
-                        <div className="col-span-2 text-center">Year</div>
-                        <div className="col-span-2 text-center">Section</div>
+                        <div className="col-span-4 text-center">Year</div>
                     </div>
 
                     <div className="divide-y divide-gray-700/30">
@@ -179,13 +166,8 @@ const Leaderboard = () => {
                                             <div className="col-span-2 text-center font-mono font-bold text-cyan-400">
                                                 {student.stats?.totalSolved || 0}
                                             </div>
-                                            <div className="col-span-2 text-center text-gray-400 text-sm">
-                                                {student.year ? `Y${student.year}` : '-'}
-                                            </div>
-                                            <div className="col-span-2 text-center">
-                                                <span className="px-2 py-1 rounded bg-gray-800 text-xs text-gray-300 border border-gray-700 group-hover:border-cyan-500/50 transition-colors">
-                                                    {student.section || '-'}
-                                                </span>
+                                            <div className="col-span-4 text-center text-gray-400 text-sm">
+                                                {student.year ? `Year ${student.year}` : '-'}
                                             </div>
                                         </div>
 
@@ -220,10 +202,7 @@ const Leaderboard = () => {
                                             </div>
                                             <div className="flex gap-2 mt-2 ml-11">
                                                 <span className="text-xs bg-gray-800/50 text-gray-400 px-2 py-1 rounded">
-                                                    Y{student.year || '-'}
-                                                </span>
-                                                <span className="text-xs bg-gray-800/50 text-gray-400 px-2 py-1 rounded">
-                                                    {student.section || '-'}
+                                                    Year {student.year || '-'}
                                                 </span>
                                             </div>
                                         </div>
