@@ -19,7 +19,7 @@ export default function Contests() {
   const fetchContests = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${API_URL}/api/contests/leetcode`);
+      const response = await axios.get(`${API_URL}/contests/leetcode`);
       setContests(response.data);
       setError('');
     } catch (err) {

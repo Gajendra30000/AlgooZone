@@ -35,7 +35,7 @@ const AdminDashboard = () => {
     const fetchStudents = async () => {
         try {
             const token = localStorage.getItem('dsa_token');
-            const { data } = await axios.get(`${API_URL}/api/admin/students`, {
+            const { data } = await axios.get(`${API_URL}/admin/students`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setStudents(data);
@@ -55,7 +55,7 @@ const AdminDashboard = () => {
         setMsg({ type: '', text: '' });
 
         try {
-            await axios.post(`${API_URL}/api/auth/register`, formData);
+            await axios.post(`${API_URL}/auth/register`, formData);
             setMsg({ type: 'success', text: 'Student added successfully!' });
             setFormData({
                 name: '',
@@ -76,7 +76,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('dsa_token');
-            await axios.delete(`${API_URL}/api/admin/students/${id}`, {
+            await axios.delete(`${API_URL}/admin/students/${id}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             fetchStudents();
@@ -98,7 +98,7 @@ const AdminDashboard = () => {
 
         try {
             const token = localStorage.getItem('dsa_token');
-            const { data } = await axios.post(`${API_URL}/api/admin/refresh`, {}, {
+            const { data } = await axios.post(`${API_URL}/admin/refresh`, {}, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             setMsg({ type: 'success', text: data.message });

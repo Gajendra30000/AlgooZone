@@ -14,7 +14,7 @@ const Sheets = () => {
         const fetchSheets = async () => {
             try {
                 console.log("Fetching sheets from API...");
-                const { data } = await axios.get(`${API_URL}/api/sheets`);
+                const { data } = await axios.get(`${API_URL}/sheets`);
                 console.log("Sheets received:", data);
                 console.log("Sheets parsed as JSON:", JSON.stringify(data));
                 setSheets(data);

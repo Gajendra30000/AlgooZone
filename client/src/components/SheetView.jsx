@@ -17,7 +17,7 @@ const SheetView = ({ sheetName, studentId }) => {
             setLoading(true);
             try {
                 console.log(`Fetching sheet: ${sheetName}`);
-                const contentRes = await axios.get(`${API_URL}/api/sheets/${encodeURIComponent(sheetName)}`);
+                const contentRes = await axios.get(`${API_URL}/sheets/${encodeURIComponent(sheetName)}`);
                 console.log(`Fetched ${sheetName}: `, contentRes.data);
                 setTopics(contentRes.data);
 
@@ -25,7 +25,7 @@ const SheetView = ({ sheetName, studentId }) => {
                 const token = localStorage.getItem('dsa_token');
                 if (token) {
                     try {
-                        const progressRes = await axios.get(`${API_URL}/api/sheets/${encodeURIComponent(sheetName)}/progress`, {
+                        const progressRes = await axios.get(`${API_URL}/sheets/${encodeURIComponent(sheetName)}/progress`, {
                             headers: { Authorization: `Bearer ${token}` }
                         });
                         setProgress(progressRes.data);
@@ -46,7 +46,7 @@ const SheetView = ({ sheetName, studentId }) => {
     const handleToggle = async (topic, problemId) => {
         try {
             const token = localStorage.getItem('dsa_token');
-            await axios.post(`${API_URL}/api/sheets/update-progress`, {
+            await axios.post(`${API_URL}/sheets/update-progress`, {
                 sheetName,
                 topic,
                 problemId

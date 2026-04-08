@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
                 };
             }
 
-            const { data } = await axios.post(`${API_URL}/api/auth/login`, { 
+            const { data } = await axios.post(`${API_URL}/auth/login`, { 
                 registrationNumber, 
                 password 
             });
@@ -89,7 +89,7 @@ export const AuthProvider = ({ children }) => {
                 };
             }
 
-            const { data } = await axios.post(`${API_URL}/api/auth/admin/login`, { username, password });
+            const { data } = await axios.post(`${API_URL}/auth/admin/login`, { username, password });
             
             console.log('✅ ADMIN LOGIN SUCCESS');
             setUser({ ...data, role: 'admin' });

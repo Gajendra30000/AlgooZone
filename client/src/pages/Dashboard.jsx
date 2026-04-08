@@ -26,7 +26,7 @@ const Dashboard = () => {
         try {
             const token = localStorage.getItem('dsa_token');
             const { data } = await axios.post(
-                `${API_URL}/api/gemini/analyze-progress`,
+                `${API_URL}/gemini/analyze-progress`,
                 {},
                 { headers: { Authorization: `Bearer ${token}` } }
             );
@@ -49,7 +49,7 @@ const Dashboard = () => {
             if (id) {
                 try {
                     const token = localStorage.getItem('dsa_token');
-                    const { data } = await axios.get(`${API_URL}/api/student/${id}`, {
+                    const { data } = await axios.get(`${API_URL}/student/${id}`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     setViewUser(data);
@@ -62,7 +62,7 @@ const Dashboard = () => {
                 // Fetch fresh profile for logged-in user
                 try {
                     const token = localStorage.getItem('dsa_token');
-                    const { data } = await axios.get(`${API_URL}/api/student/profile`, {
+                    const { data } = await axios.get(`${API_URL}/student/profile`, {
                         headers: { Authorization: `Bearer ${token}` }
                     });
                     setViewUser(data);

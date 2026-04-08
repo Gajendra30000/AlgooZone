@@ -43,7 +43,7 @@ const Leaderboard = () => {
             const params = {};
             if (filterYear) params.year = filterYear;
 
-            const { data } = await axios.get(`${API_URL}/api/student/leaderboard`, { params });
+            const { data } = await axios.get(`${API_URL}/student/leaderboard`, { params });
 
             // Update cache
             leaderboardCache = {

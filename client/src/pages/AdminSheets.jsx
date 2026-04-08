@@ -18,7 +18,7 @@ const AdminSheets = () => {
         const fetchSheets = async () => {
             try {
                 const token = localStorage.getItem('dsa_token');
-                const { data } = await axios.get(`${API_URL}/api/sheets`, {
+                const { data } = await axios.get(`${API_URL}/sheets`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setSheets(data);
@@ -37,7 +37,7 @@ const AdminSheets = () => {
             setLoading(true);
             try {
                 const token = localStorage.getItem('dsa_token');
-                const { data } = await axios.get(`${API_URL}/api/sheets/admin/progress/${encodeURIComponent(activeSheet)}`, {
+                const { data } = await axios.get(`${API_URL}/sheets/admin/progress/${encodeURIComponent(activeSheet)}`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

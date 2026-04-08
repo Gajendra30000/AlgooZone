@@ -77,7 +77,7 @@ const Register = () => {
         setLoading(true);
 
         try {
-            const { data } = await axios.post(`${API_URL}/api/auth/register`, formData);
+            const { data } = await axios.post(`${API_URL}/auth/register`, formData);
             console.log('✅ REGISTRATION SUCCESS');
             // Save token and redirect
             localStorage.setItem('dsa_token', data.token);

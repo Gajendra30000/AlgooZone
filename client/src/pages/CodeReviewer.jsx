@@ -28,7 +28,7 @@ const CodeReviewer = () => {
     try {
       const token = localStorage.getItem('dsa_token');
       const response = await axios.post(
-        `${API_URL}/api/gemini/review-code`,
+        `${API_URL}/gemini/review-code`,
         { code },
         { headers: { Authorization: `Bearer ${token}` } }
       );
