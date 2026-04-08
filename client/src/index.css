@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-deep-space: #0a0a2a;
+}
+
+/* Custom theme extensions using CSS variables for TW4 */
+@theme {
+  --color-neon-cyan: #00f3ff;
+  --color-neon-purple: #bc13fe;
+  --color-deep-space: #0a0a2a;
+  --color-glass-white: rgba(255, 255, 255, 0.1);
+  --font-sans: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #050511;
+  color: white;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+.glass-card {
+  background: rgba(10, 10, 42, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 243, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.neon-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 243, 255, 0.7);
+}
+
+.neon-text-purple {
+  text-shadow: 0 0 10px rgba(188, 19, 254, 0.7);
+}
+
+.neon-border {
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.3), inset 0 0 15px rgba(0, 243, 255, 0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a2a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00f3ff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #bc13fe;
+}
