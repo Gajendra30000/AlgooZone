@@ -233,6 +233,8 @@ export const loginAdmin = async (req, res) => {
     const startTime = Date.now();
     
     logger.info('ADMIN LOGIN ATTEMPT', username);
+    logger.debug('ADMIN_SECRET DEBUG', `ADMIN_SECRET value: ${process.env.ADMIN_SECRET ? 'SET' : 'NOT SET'}`);
+    logger.debug('PASSWORD CHECK', `Comparing password: "${password}" with ADMIN_SECRET`);
 
     try {
         if (!username || !password) {
@@ -261,6 +263,7 @@ export const loginAdmin = async (req, res) => {
         }
 
         // Fallback for demo/development
+        logger.debug('FALLBACK CHECK', `Checking if password matches ADMIN_SECRET...`);
         if (password === process.env.ADMIN_SECRET) {
             logger.success('MASTER ADMIN LOGIN', 'Using environment secret for admin access');
             return res.json({
