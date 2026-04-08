@@ -78,11 +78,6 @@ const Login = () => {
                                             💡 Try: Make sure the backend server is running on port 5000
                                         </div>
                                     )}
-                                    {error.includes('Invalid registration') && (
-                                        <div className="mt-2 text-xs text-red-300 bg-red-900/30 p-2 rounded">
-                                            💡 Account: 2045pg / Password: nayak123 (test account)
-                                        </div>
-                                    )}
                                 </div>
                             </div>
                         </motion.div>
